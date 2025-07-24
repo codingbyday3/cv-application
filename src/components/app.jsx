@@ -1,6 +1,7 @@
 import {inputsIformations} from "./input-info"
 import CreateCv from "./create-cv-file"
 import { Fragment } from "react"
+import "../styles/app.css"
 
 function CreateInputFields({input}){
     return(
@@ -26,7 +27,7 @@ export default function App(){
     return(
         <>
             <header>
-                <h1>CV application</h1>
+                <h1>CV <span >application</span> </h1>
             </header>
             <main>
                 <aside>
