@@ -44,7 +44,7 @@ export default function App(){
                             <CreateInputFields key={info.id} input={info} />
                         )}
                 </aside>
-                <section>
+                <section className="cv-container">
                     <h2>Your's <span>CV</span></h2>
                     <CreateCv />
                 </section>

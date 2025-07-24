@@ -1,8 +1,8 @@
 export default function CreateCv(){
     return(
         <article>
-            <section>
-                <div>
+            <section className="cv-side-container">
+                <div className="contacts">
                     <h4>CONTACTS</h4>
                     <address>
                         <div>
@@ -19,11 +19,14 @@ export default function CreateCv(){
                         </div>
                     </address>
                 </div>
-                <div>
+                <div className="education">
                     <h4>EDUCATION</h4>
-                    <p>Harward university</p>
-                    <p>Master's degree from cs</p>
-                    <p>12.3.2012</p>
+                    <div>
+                        <p>Harward university</p>
+                        <p>Master's degree from cs</p>
+                        <p>12.3.2012</p>
+                    </div>
+
                 </div>
             </section>
             <section>
