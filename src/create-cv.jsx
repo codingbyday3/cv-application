@@ -1,6 +1,6 @@
 import inputsIformations from "./input-info"
 
-function CreateInputFields(){
+function CreateInputFields({info}){
     return(
         <section>
 
@@ -19,7 +19,7 @@ export default function App(){
                 <h2>Create your own CV here</h2>
                 <form action="">
                     {inputsIformations.map(info=>
-                        <CreateInputFields input={info} />
+                        <CreateInputFields key={info.id} input={info} />
                     )}
                 </form>
             </main>
