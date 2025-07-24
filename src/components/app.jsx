@@ -1,6 +1,5 @@
 import {inputsIformations} from "./input-info"
 import CreateCv from "./create-cv-file"
-import { Fragment } from "react"
 import "../styles/app.css"
 
 function CreateInputFields({input}){
@@ -9,15 +8,18 @@ function CreateInputFields({input}){
             <h3>{input.sectionName}</h3>
             {input.inputsLabels.map((label, index)=>{
                 return(
-                    <Fragment key={input.inputId[index]}>
+                    <div className="input-container" key={input.inputId[index]}>
                         <label htmlFor={input.inputId[index]}>{label}</label>
                         <input type={input.inputTypes[index]} id={input.inputId[index]} />
+                    </div>
 
-                    </ Fragment> 
                 )
             })}
-            <button>Edit</button>
-            <button type="submit">Submit</button>
+            <div>
+                <button>Edit</button>
+                <button type="submit">Submit</button>
+            </div>
+
         </section>
     )
 }
