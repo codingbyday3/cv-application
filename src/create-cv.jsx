@@ -1,28 +1,27 @@
+import inputsIformations from "./input-info"
+
 function CreateInputFields(){
     return(
-        <form action="">
-            <section>
+        <section>
 
-            </section>
-        </form>
+        </section>
     )
 }
 
 
 export default function App(){
-
-    const inputsIformations =[
-        {sectionName: "general information",numOfInputs:3, inputsLabels:["name", "email", "phone number"], inputTypes:["text", "email", "tel"]},
-        {sectionName: "educational experience",numOfInputs:3, inputsLabels:["school name", "title of study", "date of study"], inputTypes:["text", "texe", "date"]},
-        {sectionName: "practical experience",numOfInputs:5, inputsLabels:["company name", "position title", "main responsibilities of your jobs", "from", "until"], inputTypes:["text", "text", "text", "date", "date"]}
-    ]
     return(
         <>
             <header>
                 <h1>CV application</h1>
             </header>
             <main>
-
+                <h2>Create your own CV here</h2>
+                <form action="">
+                    {inputsIformations.map(info=>
+                        <CreateInputFields input={info} />
+                    )}
+                </form>
             </main>
         </>
     )
