@@ -5,7 +5,13 @@ import "../styles/app.css"
 function CreateInputFields({input}){
     return(
         <section>
-            <h3>{input.sectionName}</h3>
+            <div className="burger-menu">
+                <h3>{input.sectionName}</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <title>chevron-down</title>
+                <path d="M5.84,9.59L11.5,15.25L17.16,9.59L16.45,8.89L11.5,13.84L6.55,8.89L5.84,9.59Z" /></svg>
+            
+            </div>
             {input.inputsLabels.map((label, index)=>{
                 return(
                     <div className="input-container" key={input.inputId[index]}>
@@ -33,7 +39,7 @@ export default function App(){
             </header>
             <main>
                 <aside>
-                    <h2>Create your own CV here</h2>
+                    <h2>Create your own <span>CV</span> here</h2>
                     <form action="">
                         {inputsIformations.map(info=>
                             <CreateInputFields key={info.id} input={info} />
@@ -41,7 +47,7 @@ export default function App(){
                     </form>
                 </aside>
                 <section>
-                    <h2>Your's CV</h2>
+                    <h2>Your's <span>CV</span></h2>
                     <CreateCv />
                 </section>
             </main>
