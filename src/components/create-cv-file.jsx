@@ -29,20 +29,27 @@ export default function CreateCv(){
 
                 </div>
             </section>
-            <section>
-                <div>
-                    <h3>Kfds Ffdsfd</h3>
+            <section className="cv-main">
+                <div className="user-heading">
+                    <h3>Kfds <span>Ffdsfd</span></h3>
                     <p>fdasfd asdfasf</p>
                 </div>
-                <div>
-                    <h4>work experience</h4>
-                    <p>Microsoft</p>
-                    <p>engineer</p>
-                    <p>
+                <div className="cv-content">
+                    <h4>WORK EXPERIENCE</h4>
+
+                    <div>
+                        <p className="previous-company">Microsoft</p>
+                        <p>Engineer</p>
+                    </div>
+                    <p className="previous-company-description">
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae recusandae quaerat illum sit ea, ducimus libero at accusantium soluta, architecto perferendis facilis id modi numquam eum reiciendis temporibus nisi quo.
                     </p>
-                    <p>From: 12.2.2024</p>
-                    <p>To: 12.3.2025</p>
+                    <div>
+                        <p>From: 12.2.2024</p>
+                        <p>To: 12.3.2025</p>
+                    </div>
+
+
                 </div>
 
             </section>
