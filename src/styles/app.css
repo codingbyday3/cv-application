@@ -96,7 +96,7 @@ aside h3{
 }
 
 
-aside section{
+aside form{
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -106,6 +106,7 @@ aside section{
 .input-container{
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 
 .burger-menu{
@@ -114,3 +115,34 @@ aside section{
   gap: 10px;
 }
 
+input{
+  appearance: none;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid var(--blue-dark);
+  background-color: var(--cream);
+  padding: 5px 10px;
+
+}
+
+.buttons-container{
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.buttons-container button{
+  padding: 10px 2rem;
+  border-radius: 5px;
+  border: none;
+}
+
+.buttons-container button:first-child{
+  background-color: var(--red-light);
+  color: white;
+}
+
+.buttons-container button:last-child{
+  background-color: var(--blue-light);
+  color: white;
+}

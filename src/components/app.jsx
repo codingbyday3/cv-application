@@ -4,7 +4,7 @@ import "../styles/app.css"
 
 function CreateInputFields({input}){
     return(
-        <section>
+        <form action="">
             <div className="burger-menu">
                 <h3>{input.sectionName}</h3>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -21,12 +21,12 @@ function CreateInputFields({input}){
 
                 )
             })}
-            <div>
+            <div className="buttons-container">
                 <button>Edit</button>
                 <button type="submit">Submit</button>
             </div>
 
-        </section>
+        </form>
     )
 }
 
@@ -40,11 +40,9 @@ export default function App(){
             <main>
                 <aside>
                     <h2>Create your own <span>CV</span> here</h2>
-                    <form action="">
                         {inputsIformations.map(info=>
                             <CreateInputFields key={info.id} input={info} />
                         )}
-                    </form>
                 </aside>
                 <section>
                     <h2>Your's <span>CV</span></h2>
