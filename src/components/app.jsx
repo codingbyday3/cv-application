@@ -46,7 +46,27 @@ function CreateInputFields({input, isActive, onShow}){
 
 
 export default function App(){
+
     const [openIndex, setOpenIndex] = useState(null)
+    const [userInformations, setUserInformation] = useState({
+    personal: {
+        name: null,
+        email: null,
+        phoneNum: null,
+    },
+    education: {
+        schoolName: null,
+        studyTitle: null,
+        studyDate: null,
+    },
+    experience: {
+        companyName: null,
+        positionTitle: null,
+        mainResponsibilities: null,
+        from: null,
+        to: null,
+    }
+    });
 
     const handleToggle = (index)=>{
         setOpenIndex(prev => prev === index ? null : index);
@@ -65,7 +85,7 @@ export default function App(){
                 </aside>
                 <section className="cv-container">
                     <h2>Your's <span>CV</span></h2>
-                    <CreateCv />
+                    <CreateCv userInformations={userInformations}/>
                 </section>
             </main>
         </>

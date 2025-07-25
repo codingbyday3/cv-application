@@ -32,6 +32,7 @@ body {
 #root{
   display: grid;
   grid-template-rows: 80px 1fr;
+  gap: 2rem;
   height: 100%;
   padding: 0 2rem;
 }
@@ -81,7 +82,8 @@ header span{
 
 main{
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 2fr;
+  justify-items: center;
 
 }
 
@@ -195,7 +197,7 @@ input{
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  align-items: center;
+
 }
 
 
@@ -204,7 +206,7 @@ input{
 article{
   display: grid;
   grid-template-columns: 1fr 2fr;
-
+  gap: 2rem;
   max-width: 600px;
   padding: 2rem;
   border: 1px solid black;
@@ -248,7 +250,8 @@ address div{
 .contacts h4,
 .education h4{
   border-bottom:1px solid var(--blue-dark);
-  width: 50%;
+
+  white-space: nowrap;
 }
 
 .cv-main{
@@ -277,7 +280,8 @@ address div{
 
 .cv-content h4{
   border-bottom: 1px solid var(--blue-dark);
-  width: 30%;
+
+  white-space: nowrap;
 }
 
 .previous-company{
@@ -292,11 +296,19 @@ address div{
     width: 70%;
     justify-self: center;
   }
+
+  aside{
+    justify-self: center;
+  }
 }
 
 @media(max-width:767px){
-    main{
+  main{
     grid-template-columns: 1fr;
+    justify-self: center;
+  }
+
+  aside{
     justify-self: center;
   }
 }
