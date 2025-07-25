@@ -139,12 +139,27 @@ input{
 
 .buttons-container button:first-child{
   background-color: var(--red-light);
+}
+
+.buttons-container button:first-child,
+.buttons-container button:last-child{
   color: white;
+  transition: 200ms transform ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.425);
+}
+
+.buttons-container button:last-child:hover,
+.buttons-container button:first-child:hover{
+  transform: translate(-3%, -3%);
+}
+
+.buttons-container button:last-child:active,
+.buttons-container button:first-child:active{
+  transform: translate(0, 0);
 }
 
 .buttons-container button:last-child{
   background-color: var(--blue-light);
-  color: white;
 }
 
 .cv-container{
@@ -207,7 +222,7 @@ address div{
 .cv-main{
   display: flex;
   flex-direction: column;
-  gap: 5rem;
+  gap: 3rem;
 }
 
 .cv-main h3{
