@@ -33,8 +33,8 @@ function CreateInputFields({input, isActive, onShow}){
             </div>
           ))}
           <div className="buttons-container">
-            <button>Edit</button>
-            <button type="submit">Submit</button>
+            <button onClick={(e)=>e.preventDefault()}>Edit</button>
+            <button onClick={(e)=>e.preventDefault()} type="submit">Submit</button>
           </div>
         </div>
       )}
@@ -48,7 +48,9 @@ function CreateInputFields({input, isActive, onShow}){
 export default function App(){
     const [openIndex, setOpenIndex] = useState(null)
 
-
+    const handleToggle = (index)=>{
+        setOpenIndex(prev => prev === index ? null : index);
+    } 
     return(
         <>
             <header>
@@ -58,7 +60,7 @@ export default function App(){
                 <aside>
                     <h2>Create your own <span>CV</span> here</h2>
                         {inputsIformations.map((info, index)=>
-                            <CreateInputFields key={info.id} input={info} isActive={openIndex === index} onShow={() => setOpenIndex(index)}/>
+                            <CreateInputFields key={info.id} input={info} isActive={openIndex === index} onShow={() => handleToggle(index)}/>
                         )}
                 </aside>
                 <section className="cv-container">

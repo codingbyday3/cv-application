@@ -128,18 +128,18 @@ aside form{
 
 
 .dropdown-content.active{
-  animation: drop-down 700ms ease-in-out;
+  animation: drop-down 200ms ease-in-out;
   transform-origin: top;
+  will-change: transform;
 }
 
 @keyframes drop-down{
   from{
     transform: scaleY(0);
-    opacity: 0;
+
   }
   to{
     transform: scaleY(1);
-    opacity: 1;
   }
 }
 
@@ -179,6 +179,7 @@ input{
 .buttons-container button:last-child:hover,
 .buttons-container button:first-child:hover{
   transform: translate(-3%, -3%);
+  cursor: pointer;
 }
 
 .buttons-container button:last-child:active,
