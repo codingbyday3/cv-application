@@ -22,7 +22,7 @@ function CreateInputFields({input, isActive, onShow}){
       </button>
 
       {isActive && (
-        <>
+        <div className={`dropdown-content ${isActive ? "active" : ""}`}>
           {input.inputsLabels.map((label, index) => (
             <div className="input-container" key={input.inputId[index]}>
               <label htmlFor={input.inputId[index]}>{label}</label>
@@ -36,7 +36,7 @@ function CreateInputFields({input, isActive, onShow}){
             <button>Edit</button>
             <button type="submit">Submit</button>
           </div>
-        </>
+        </div>
       )}
     </form>
   );
@@ -46,7 +46,9 @@ function CreateInputFields({input, isActive, onShow}){
 
 
 export default function App(){
-    const [openIndex, setOpenIndex] = useState(0)
+    const [openIndex, setOpenIndex] = useState(null)
+
+
     return(
         <>
             <header>
