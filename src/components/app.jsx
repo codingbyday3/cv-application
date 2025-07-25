@@ -3,8 +3,8 @@ import CreateCv from "./create-cv-file"
 import "../styles/app.css"
 import { useState } from "react"
 
-function CreateInputFields({input, isActive, onShow}){
-
+function CreateInputFields({input, isActive, onShow, changeValue, userInformations}){
+  let isEditClicked = false
   return (
     <form action="">
       <button
@@ -29,6 +29,10 @@ function CreateInputFields({input, isActive, onShow}){
               <input
                 type={input.inputTypes[index]}
                 id={input.inputId[index]}
+ 
+                onChange={(e) =>{
+                  changeValue(input.inputId[index], e.target.value)
+                }}
               />
             </div>
           ))}
@@ -49,28 +53,29 @@ export default function App(){
 
     const [openIndex, setOpenIndex] = useState(null)
     const [userInformations, setUserInformation] = useState({
-    personal: {
-        name: null,
-        email: null,
-        phoneNum: null,
-    },
-    education: {
-        schoolName: null,
-        studyTitle: null,
-        studyDate: null,
-    },
-    experience: {
-        companyName: null,
-        positionTitle: null,
-        mainResponsibilities: null,
-        from: null,
-        to: null,
-    }
+      name: null,
+      email: null,
+      phone: null,
+      school: null,
+      title: null,
+      studyDate: null,
+      company: null,
+      position: null,
+      responsibilities: null,
+      fromDate: null,
+      toDate: null,
     });
 
     const handleToggle = (index)=>{
         setOpenIndex(prev => prev === index ? null : index);
-    } 
+    }
+
+    const changeValue = (field, value)=>{
+      setUserInformation(prev =>({
+        ...prev,
+        [field]:value
+      }))
+    }
     return(
         <>
             <header>
@@ -80,7 +85,7 @@ export default function App(){
                 <aside>
                     <h2>Create your own <span>CV</span> here</h2>
                         {inputsIformations.map((info, index)=>
-                            <CreateInputFields key={info.id} input={info} isActive={openIndex === index} onShow={() => handleToggle(index)}/>
+                            <CreateInputFields key={info.id} input={info} isActive={openIndex === index} onShow={() => handleToggle(index) } changeValue={changeValue} userInformations={userInformations}/>
                         )}
                 </aside>
                 <section className="cv-container">
