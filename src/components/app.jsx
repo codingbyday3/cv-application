@@ -4,7 +4,12 @@ import "../styles/app.css"
 import { useState } from "react"
 
 function CreateInputFields({input, isActive, onShow, changeValue, userInformations}){
-  let isEditClicked = false
+  const [isSubitClicked, setIsSubmitClicked] = useState(false)
+
+  const handleSubmitClick = (e)=>{
+    e.preventDefault()
+    setIsSubmitClicked(true)
+  }
   return (
     <form action="">
       <button
@@ -23,22 +28,24 @@ function CreateInputFields({input, isActive, onShow, changeValue, userInformatio
 
       {isActive && (
         <div className={`dropdown-content ${isActive ? "active" : ""}`}>
-          {input.inputsLabels.map((label, index) => (
-            <div className="input-container" key={input.inputId[index]}>
-              <label htmlFor={input.inputId[index]}>{label}</label>
+          {input.fields.map(field => (
+            <div className="input-container" key={field.id}>
+              <label htmlFor={field.id}>{field.label}</label>
               <input
-                type={input.inputTypes[index]}
-                id={input.inputId[index]}
- 
+                type={field.type}
+                id={field.id}
                 onChange={(e) =>{
-                  changeValue(input.inputId[index], e.target.value)
+                  changeValue(field.id, e.target.value)
                 }}
               />
             </div>
           ))}
           <div className="buttons-container">
             <button onClick={(e)=>e.preventDefault()}>Edit</button>
-            <button onClick={(e)=>e.preventDefault()} type="submit">Submit</button>
+            <button
+            onClick={handleSubmitClick}
+            disabled={isSubitClicked}
+            type="submit">Submit</button>
           </div>
         </div>
       )}
