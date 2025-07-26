@@ -3,11 +3,8 @@ import CreateCv from "./create-cv-file"
 import "../styles/app.css"
 import { useState } from "react"
 
-function CreateInputFields({input, isActive, onShow, changeValue, userInformations}){
+function CreateInputFields({input, isActive, onShow, changeValue, onSubmit}){
 
-  const handleSubmitClick = (e)=>{
-    
-  }
   return (
     <form action="">
       <button
@@ -35,16 +32,21 @@ function CreateInputFields({input, isActive, onShow, changeValue, userInformatio
                 onChange={(e) =>{
                   changeValue(field.id, e.target.value)
                 }}
+                disabled={input.isSubmited}
               />
             </div>
           ))}
-          {/* <div className="buttons-container">
+          <div className="buttons-container">
             <button onClick={(e)=>e.preventDefault()}>Edit</button>
             <button
-            onClick={handleSubmitClick}
-            disabled={isSubitClicked}
+            onClick={(e)=>{
+              e.preventDefault()
+              onSubmit()
+            }
+            }
+            disabled={input.isSubmited}
             type="submit">Submit</button>
-          </div> */}
+          </div>
         </div>
       )}
     </form>
@@ -81,6 +83,17 @@ export default function App(){
         [field]:value
       }))
     }
+
+    const handleSubmitBtn = (sectionId) => {
+      setInputSections(prev =>
+        prev.map(section =>
+          section.id === sectionId
+            ? { ...section, isSubmited: true }
+            : section
+        )
+      );
+    };
+
     return(
         <>
             <header>
@@ -90,7 +103,13 @@ export default function App(){
                 <aside>
                     <h2>Create your own <span>CV</span> here</h2>
                         {inputSections.map((info, index)=>
-                            <CreateInputFields key={info.id} input={info} isActive={openIndex === index} onShow={() => handleToggle(index) } changeValue={changeValue} userInformations={userInformations}/>
+                          <CreateInputFields 
+                            key={info.id} input={info} 
+                            isActive={openIndex === index} 
+                            onShow={() => handleToggle(index) } 
+                            changeValue={changeValue}
+                            onSubmit={()=> handleSubmitBtn(info.id)}
+                          />
                         )}
                 </aside>
                 <section className="cv-container">
