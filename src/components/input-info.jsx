@@ -8,7 +8,8 @@ const inputsInformations = [
       { id: "email", label: "Email:", type: "email" },
       { id: "phone", label: "Phone Number:", type: "tel" },
     ],
-    isSubmited:false
+    isSubmited:false,
+    isEditable:true
   },
   {
     id: crypto.randomUUID(),
@@ -18,7 +19,8 @@ const inputsInformations = [
       { id: "title", label: "Title of Study:", type: "text" },
       { id: "studyDate", label: "Date of Study:", type: "date" },
     ],
-    isSubmited:false
+    isSubmited:false,
+    isEditable:true
   },
   {
     id: crypto.randomUUID(),
@@ -30,7 +32,8 @@ const inputsInformations = [
       { id: "fromDate", label: "From:", type: "date" },
       { id: "toDate", label: "Until:", type: "date" },
     ],
-    isSubmited:false
+    isSubmited:false,
+    isEditable:true
   },
 ];
 

@@ -3,7 +3,7 @@ import CreateCv from "./create-cv-file"
 import "../styles/app.css"
 import { useState } from "react"
 
-function CreateInputFields({input, isActive, onShow, changeValue, onSubmit, userInformations}){
+function CreateInputFields({input, isActive, onShow, changeValue, onSubmit, userInformations, onEdit}){
 
   return (
     <form action="">
@@ -29,16 +29,20 @@ function CreateInputFields({input, isActive, onShow, changeValue, onSubmit, user
               <input
                 type={field.type}
                 id={field.id}
-                value={input.isSubmited?"":userInformations[field.id]}
+                value={!input.isEditable?"":userInformations[field.id]}
                 onChange={(e) =>{
                   changeValue(field.id, e.target.value)
                 }}
-                disabled={input.isSubmited}
+                disabled={input.isSubmited && !input.isEditable}
               />
             </div>
           ))}
           <div className="buttons-container">
-            <button onClick={(e)=>e.preventDefault()}>Edit</button>
+            <button onClick={(e)=>{
+              e.preventDefault()
+              onEdit()
+            }
+            }>Edit</button>
             <button
             onClick={(e)=>{
               e.preventDefault()
@@ -89,7 +93,17 @@ export default function App(){
       setInputSections(prev =>
         prev.map(section =>
           section.id === sectionId
-            ? { ...section, isSubmited: true }
+            ? { ...section, isSubmited: true, isEditable: false}
+            : section
+        )
+      );
+    };
+
+    const handleEditBtn = (sectionId) => {
+      setInputSections(prev =>
+        prev.map(section =>
+          section.id === sectionId
+            ? { ...section, isSubmited: false, isEditable: true}
             : section
         )
       );
@@ -111,6 +125,7 @@ export default function App(){
                             changeValue={changeValue}
                             onSubmit={()=> handleSubmitBtn(info.id)}
                             userInformations
+                            onEdit={()=>handleEditBtn(info.id)}
                           />
                         )}
                 </aside>
