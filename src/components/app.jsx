@@ -1,14 +1,12 @@
-import {inputsIformations} from "./input-info"
+import {inputsInformations} from "./input-info"
 import CreateCv from "./create-cv-file"
 import "../styles/app.css"
 import { useState } from "react"
 
 function CreateInputFields({input, isActive, onShow, changeValue, userInformations}){
-  const [isSubitClicked, setIsSubmitClicked] = useState(false)
 
   const handleSubmitClick = (e)=>{
-    e.preventDefault()
-    setIsSubmitClicked(true)
+    
   }
   return (
     <form action="">
@@ -40,13 +38,13 @@ function CreateInputFields({input, isActive, onShow, changeValue, userInformatio
               />
             </div>
           ))}
-          <div className="buttons-container">
+          {/* <div className="buttons-container">
             <button onClick={(e)=>e.preventDefault()}>Edit</button>
             <button
             onClick={handleSubmitClick}
             disabled={isSubitClicked}
             type="submit">Submit</button>
-          </div>
+          </div> */}
         </div>
       )}
     </form>
@@ -57,7 +55,7 @@ function CreateInputFields({input, isActive, onShow, changeValue, userInformatio
 
 
 export default function App(){
-
+    const [inputSections, setInputSections] = useState(inputsInformations)
     const [openIndex, setOpenIndex] = useState(null)
     const [userInformations, setUserInformation] = useState({
       name: null,
@@ -91,7 +89,7 @@ export default function App(){
             <main>
                 <aside>
                     <h2>Create your own <span>CV</span> here</h2>
-                        {inputsIformations.map((info, index)=>
+                        {inputSections.map((info, index)=>
                             <CreateInputFields key={info.id} input={info} isActive={openIndex === index} onShow={() => handleToggle(index) } changeValue={changeValue} userInformations={userInformations}/>
                         )}
                 </aside>

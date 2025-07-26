@@ -1,5 +1,5 @@
 
-const inputsIformations = [
+const inputsInformations = [
   {
     id: crypto.randomUUID(),
     sectionName: "General Information",
@@ -8,6 +8,7 @@ const inputsIformations = [
       { id: "email", label: "Email:", type: "email" },
       { id: "phone", label: "Phone Number:", type: "tel" },
     ],
+    isSubmited:false
   },
   {
     id: crypto.randomUUID(),
@@ -17,6 +18,7 @@ const inputsIformations = [
       { id: "title", label: "Title of Study:", type: "text" },
       { id: "studyDate", label: "Date of Study:", type: "date" },
     ],
+    isSubmited:false
   },
   {
     id: crypto.randomUUID(),
@@ -28,8 +30,9 @@ const inputsIformations = [
       { id: "fromDate", label: "From:", type: "date" },
       { id: "toDate", label: "Until:", type: "date" },
     ],
+    isSubmited:false
   },
 ];
 
 
-export {inputsIformations}
+export {inputsInformations}
