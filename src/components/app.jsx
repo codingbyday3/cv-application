@@ -3,7 +3,7 @@ import CreateCv from "./create-cv-file"
 import "../styles/app.css"
 import { useState } from "react"
 
-function CreateInputFields({input, isActive, onShow, changeValue, onSubmit}){
+function CreateInputFields({input, isActive, onShow, changeValue, onSubmit, userInformations}){
 
   return (
     <form action="">
@@ -29,6 +29,7 @@ function CreateInputFields({input, isActive, onShow, changeValue, onSubmit}){
               <input
                 type={field.type}
                 id={field.id}
+                value={input.isSubmited?"":userInformations[field.id]}
                 onChange={(e) =>{
                   changeValue(field.id, e.target.value)
                 }}
@@ -109,6 +110,7 @@ export default function App(){
                             onShow={() => handleToggle(index) } 
                             changeValue={changeValue}
                             onSubmit={()=> handleSubmitBtn(info.id)}
+                            userInformations
                           />
                         )}
                 </aside>
