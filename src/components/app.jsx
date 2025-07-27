@@ -124,7 +124,7 @@ export default function App(){
                             onShow={() => handleToggle(index) } 
                             changeValue={changeValue}
                             onSubmit={()=> handleSubmitBtn(info.id)}
-                            userInformations
+                            userInformations={userInformations}
                             onEdit={()=>handleEditBtn(info.id)}
                           />
                         )}
